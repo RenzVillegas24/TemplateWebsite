@@ -1,0 +1,156 @@
+@charset "utf-8";
+/* CSS Document */
+
+.Lrow{
+	background-color:#1f3853;
+	height: 250px;
+	border-radius: 20px;
+    filter: drop-shadow(0 7.5px 10px rgba(0,0,0,0.6));
+	transition: 0.25s;
+	margin: 20px 0;
+}
+.Lrow:hover{
+	background-color:#1e456e;
+	filter: drop-shadow(0 15px 20px rgba(0,0,0,0.6));
+	transition: 0.25s;
+
+}
+
+.lnk {
+	float: left;
+	left:0;
+	padding: 0;
+	position: relative;
+	display:block; 	
+	width: 50%;
+	height: 100%;
+}
+
+.desc {
+	float: right;
+	padding: 0;
+	position:static;
+	display:block; 	
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.desc p{
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    -webkit-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+
+    align-items: center;
+    justify-content: center;
+	font-size: 17pt;
+
+	height: 100%;
+    display: flex;
+	margin: 0 25px 0 15px;
+}
+.img {
+	width: 90%;	
+	height: 85%;
+	overflow: hidden;
+	display:block; 	
+
+	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 15px;
+	background: #003F82;
+
+	transition: 0.5s;
+	
+}
+.img:hover {
+	filter: drop-shadow(0 11px 15px #007CFF);
+	transition: 0.5s;
+	width: 95%;	
+	height: 92.5%;
+}
+.img:active {
+	filter: drop-shadow(0 3px 4px #007CFF);
+	transition: 0.1s;
+	width: 92%;	
+	height: 90%;
+
+}
+.img  .imgFig{
+	display:block; 	
+    background-size: cover;
+	height: 100%;
+	width: 100%;
+	margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+	text-align: center;
+	
+    position: relative;
+	
+	text-decoration: none;
+	color: white;
+	
+}
+
+.img  .imgFig ul{
+	font-family: 'Cerebri Sans SemiBold';
+	
+	display:block; 	
+	bottom: 0px;
+
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	text-align: center;
+	
+	position: absolute;
+	text-decoration: none;
+	color: white;
+	
+}
+
+.img  .imgFig ul.back{
+	font-size: 25pt;
+	height: 100%;
+	width: 100%;
+	padding:0;
+	top:0;
+	left: 0;
+	transition: 0.5s;
+	background-position: 0 100%;
+	background-size: 1px 125%;
+	
+	background-image: linear-gradient(to top,  #000C1F 10%, #051937cb, transparent);
+	
+}
+
+.img  .imgFig ul.back:hover{
+	font-size: 15pt;
+	transition: 0.5s;
+	background-position: 0 20%;
+	background-size: 1px 150%;
+
+}
+
+.img .imgFig ul.back ul p{
+	margin: 0 10px 20px 10px;
+
+}
+
+
+
+@media (max-width : 560px ){
+	
+}
+
+
+@media (max-width : 720px ){
+
+}
+

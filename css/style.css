@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* CSS Document */
+body .main{
+	font-family: 'Cerebri Sans Book';	
+	padding-top: 50%;
+}
+
+html{
+	font-family: 'Cerebri Sans Book';
+	background-color: #000C1F;
+	font-size: 15pt;
+	margin: 0 40px;
+	color: white;
+	overflow: visible;
+	min-width: 880px;
+
+	animation: pageFadeIn ease 3s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+
+@keyframes pageFadeIn {
+	0%{
+		opacity:0 ;
+	}
+	100% {
+		opacity:1;
+	}
+}
+
+@keyframes pageFadeOut {
+	0%{
+		opacity:1 ;
+	}
+	100% {
+		opacity:0;
+	}
+}
+
+
+figure img {
+	width: 50%;
+}
+
+aside {
+	float: right;
+	padding: 0;
+	position: relative;
+	width: 50%
+}
+
+
+article {
+	display: block;
+	position: relative;
+	max-width: 900px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+article h1 {
+	font-family: 'Cerebri Sans Bold';
+
+	font-size: 45pt;
+	color: white;
+}
+
+article article h2 {
+	font-family: 'Cerebri Sans SemiBold';
+
+	font-size: 25pt;
+	color: white;
+	
+}
+
+p.centerL {
+	font-family: 'Cerebri Sans Book';
+	font-size: 14pt;
+	color: rgba(255, 255, 255, 0.5);
+	text-align: center;
+	width:100%;
+	
+}
+figure{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.6));
+}
+
+figure figcaption{
+	margin-top: 10px;
+	width: 100%;
+	font-size: 14pt;
+	color: rgba(255, 255, 255, 0.63);
+	text-align: center;
+}
+
+figure img {
+	border-radius: 20px;
+	width: 65%;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0;
+	padding: 0;
+	display: block;
+	position: relative;
+}
+a.mail {
+	color: white;
+}
+
+header, section, footer,
+aside, nav, article, figure {
+  display: block;
+}
+
+@media (max-width : 560px ){
+	figure img {
+		width: 100%;
+	}
+}
+
+
+@media (max-width : 720px ){
+	figure img {
+		width: 80%;
+	}
+}

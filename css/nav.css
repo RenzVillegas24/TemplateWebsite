@@ -1,0 +1,165 @@
+@charset "utf-8";
+/* CSS Document */
+nav {
+	background-color: rgba(0,26,69,1.00);
+	overflow: hidden;
+	position: fixed;
+	
+	z-index: 1;
+	
+	top: 0;
+	left: 0;
+	padding: 0;
+	margin: 0;
+	width:100%;
+	height: 100%;
+	list-style: none;
+	
+	min-width: 880px;
+    filter: drop-shadow(0 7px 10px rgba(0,0,0,0.6));
+}
+
+nav .collapse {
+	height: 100px;
+	transition: 0.5s;
+	background-color: rgba(0,26,69,1);
+}
+
+nav .behind{
+    background-size: cover;
+	opacity: 1;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    top:0;
+	left:0;
+	margin: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+	
+	position:absolute;
+}
+
+nav .rightHeader {
+	float:right;
+	margin-right: 20px;
+	z-index: 9;
+}
+
+
+nav .behindCllps{
+    z-index: -9;
+	opacity:0;
+    transition: 0.5s;
+	
+}
+
+.heightNav {
+	height: 100px;
+	background-color: rgba(0,26,69,1.00);
+    transition: 0.5s;
+	z-index: 10;
+}
+
+.height {
+	height: 70px;
+    transition: 0.5s;
+}
+
+nav li a .sub {
+	font-family: 'Cerebri Sans Semibold';
+	font-size: 30pt;
+	color: white;
+    text-decoration: none;
+	text-align: left;
+	z-index: 10;
+	
+}
+
+nav p.right {
+	z-index: 10;
+	float: left;
+	position: absolute;
+	top: -10px;
+	left: 50px;
+	font-family: 'Cerebri Sans SemiBold';
+
+	font-size: 40pt;
+	color: white;
+	text-align: left;
+	z-index: 15;
+}
+
+
+#leftA{
+	font-family: 'Cerebri Sans Bold';
+
+	font-size: 30pt;
+	color: white;
+    text-decoration: none;
+	text-align: left;
+	z-index: 10;
+}
+
+
+.leftA2{
+	font-size: 30pt;
+    transition: 0.5s;
+	z-index: 10;
+	
+}
+nav li.left {
+	z-index: 10;
+	float: left;
+	position: absolute;
+	left: 40px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+nav ul li a {
+	font-family: 'Cerebri Sans Semibold';
+	font-size: 17pt;
+	color: #ffffff;
+	margin: 5px 5px;
+    transition: 0.45s;
+	display: block;
+    text-decoration: none;
+	border-radius: 10px;
+	line-height: 40px;
+	text-align: center;
+	z-index: 10;
+	width: 105px;
+	
+}
+
+nav ul li a:hover {
+	z-index: 10;
+	font-size: 19pt;
+	font-family: 'Cerebri Sans Heavy';
+	color: #007CFF;
+    transition: 0.2s;
+	background-color: rgba(0,26,69,0.5);
+	border-radius: 10px;
+	
+}
+nav ul li a:active {
+	z-index: 10;
+	font-size: 17pt;
+	font-family: 'Cerebri Sans Book';
+	color: #007bff70;
+    transition: 0.1s;
+	background-color: rgba(0,26,69,1.00);
+	border-radius: 10px;
+	
+}
+
+nav ul li {
+	display: inline-block;
+    vertical-align: middle;
+	padding:0;
+	z-index: 10;
+	
+   
+	
+}
