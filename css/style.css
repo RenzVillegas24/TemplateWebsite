@@ -6,6 +6,11 @@ body .main{
 
 }
 
+body {
+	opacity: 0;
+	transition: opacity 0.25s;
+}
+
 html{
 	font-family: 'Cerebri Sans Book';
 	background-color: #000C1F;
@@ -14,7 +19,7 @@ html{
 	color: white;
 	overflow: visible;
 	min-width: 880px;
-
+	min-height: calc(200% - 100px);
 }
 
 figure img {

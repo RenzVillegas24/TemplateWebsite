@@ -13,6 +13,9 @@
 	<script src="../js/navSub.js"></script>
 </head>
 
+<div id="loader">
+</div>
+
 <body class="main">
 	<nav class="header" id="header">
 		<li class="left">
@@ -21,12 +24,13 @@
 		</li>
 		<ul class="rightHeader">
 			<li class="height"></a></li>
-			<li><a href="../index.html">Home</a></li>
-			<li><a href="news.html">News</a></li>
-			<li><a href="learn.html">Learn</a></li>
-			<li><a href="about.html">About</a></li>
+			<li><a onclick="fadeTransition('../index.html')">Home</a></li>
+			<li><a onclick="fadeTransition('news.html')">News</a></li>
+			<li><a onclick="fadeTransition('learn.html')">Learn</a></li>
+			<li><a onclick="fadeTransition('about.html')">About</a></li>
 		</ul>
 		<ul style="background-image: url('../files/learn.jpg');" id="nvImg" class="behind"></ul>
+		<p class="right"></p>
 	</nav>
 	<article>
 		<h1>Learn more about tech.</h1>
@@ -34,7 +38,7 @@
 		<div class="Lrow">
 			<div class="lnk">
 				<div class="img">
-					<a href="learn/Learn_AI.html" class="imgFig"
+					<a onclick="fadeTransition('learn/Learn_AI.html')" class="imgFig"
 						style="background-image: url('../files/thumb/AI.jpg');">
 						<ul class="back">
 							<ul>
@@ -54,7 +58,7 @@
 		<div class="Lrow">
 			<div class="lnk">
 				<div class="img">
-					<a href="learn/Learn_AI_Industry.html" class="imgFig"
+					<a onclick="fadeTransition('learn/Learn_AI_Industry.html')" class="imgFig"
 						style="background-image: url('../files/thumb/AI_Industry.jpg');">
 						<ul class="back">
 							<ul>
@@ -75,7 +79,7 @@
 		<div class="Lrow">
 			<div class="lnk">
 				<div class="img">
-					<a href="learn/Learn_Elec.html" class="imgFig"
+					<a onclick="fadeTransition('learn/Learn_Elec.html')" class="imgFig"
 						style="background-image: url('../files/thumb/Electronics.jpg');">
 						<ul class="back">
 							<ul>
@@ -98,7 +102,7 @@
 		<div class="Lrow">
 			<div class="lnk">
 				<div class="img">
-					<a href="learn/Learn_IoT.html" class="imgFig"
+					<a onclick="fadeTransition('learn/Learn_IoT.html')" class="imgFig"
 						style="background-image: url('../files/thumb/IoT.jpg');">
 						<ul class="back">
 							<ul>
