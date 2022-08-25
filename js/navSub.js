@@ -19,7 +19,7 @@ function runOnScroll() {
 	if (window.scrollY <= vh -objh) {
 		document.getElementById("nvImg").classList.remove('behindCllps');
 		document.getElementById("nvImg").style.opacity = `${1-a}`;
-		document.getElementById("nvImg").style.filter = `blur(${15*(Math.max(a, 0.5)-0.5)*2}px)`;
+		document.getElementById("nvImg").style.filter = `blur(${10*(Math.max(a, 0.5)-0.5)*2}px)`;
 		document.querySelector(".header").style.height = `${objh-(objh*z)}%`;
 		document.getElementById("leftA").style.fontSize = `${(sz*(1-a)+(30*a))}pt`;
 		document.querySelector(".left").style.top = `${(85*(1-a))+((a)*50)}%`;
