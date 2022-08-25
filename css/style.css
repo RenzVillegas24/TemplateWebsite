@@ -3,6 +3,7 @@
 body .main{
 	font-family: 'Cerebri Sans Book';	
 	padding-top: 50%;
+
 }
 
 html{
@@ -14,30 +15,7 @@ html{
 	overflow: visible;
 	min-width: 880px;
 
-	animation: pageFadeIn ease 3s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
 }
-
-
-@keyframes pageFadeIn {
-	0%{
-		opacity:0 ;
-	}
-	100% {
-		opacity:1;
-	}
-}
-
-@keyframes pageFadeOut {
-	0%{
-		opacity:1 ;
-	}
-	100% {
-		opacity:0;
-	}
-}
-
 
 figure img {
 	width: 50%;
