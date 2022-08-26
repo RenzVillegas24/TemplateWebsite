@@ -48,7 +48,8 @@ var svgLoader = `
 `;
   
 window.fadeTransition = function(href) {
-    document.querySelector('body').style.opacity = 0
+    document.getElementById('loader').style.opacity = 1;
+    document.getElementById('loader').style.visibility = 'visible';
     setTimeout(function() { 
         window.location.href = href
     }, 100)
