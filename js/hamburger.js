@@ -4,7 +4,14 @@
 /////////////////////  ICON 1  //////////////////////
 /////////////////////////////////////////////////////
 var heightNav = document.getElementById("header")
+var left = document.querySelector(".left")
+var rightHeader = document.querySelector(".rightHeader")
+var leftA = document.getElementById("leftA")
+var leftB = document.getElementById("leftB")
+if (leftB != null)
+	var leftBTxt = leftB.innerHTML
 var h0tmMain = document.querySelector("html")
+var vw = window.innerWidth
 
 
 ///Initiation Variables
@@ -48,8 +55,17 @@ function menuDisappearAnimation_1() {
 			//bottom line
 			bottomLineY_1 = AJS.easeInBack( 63, 50, menuDisappearDurationInFrames_1, currentFrame_1 );
 			bottomLine_1.setAttribute( "d", "M30,"+bottomLineY_1+" L70,"+bottomLineY_1 );
-			//recursion
+			//custom
 			heightNav.style.height = `${AJS.easeInBack(70, 315, menuDisappearDurationInFrames_1, currentFrame_1 )}px`
+			rightHeader.style.visibility = `visible`
+			rightHeader.style.transform = `translateX(${AJS.easeInBack((vw/2) - 170, -5, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+
+			if (leftB !== null){
+				leftB.style.transform = `translateX(-${AJS.easeInBack(0, (vw/2) - 170 + 10 - (vw < 720 ? 0 : 20), menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+				leftA.style.transform = `translateX(-${AJS.easeInBack(0, (vw/2) - 170 + 10 - (vw < 720 ? 0 : 20), menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+			} else
+				leftA.style.transform = `translateX(-${AJS.easeInBack(0, (vw/2) - 145 + 10 - (vw < 720 ? 0 : 20), menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+			//recursion
 			menuDisappearAnimation_1();
 		});
 	} else {
@@ -77,8 +93,16 @@ function arrowAppearAnimation_1() {
 			topRightX_1 = AJS.easeOutBack( 70, 65, arrowAppearDurationInFrames_1, currentFrame_1 );
 			topRightY_1 = AJS.easeOutBack( 50, 35, arrowAppearDurationInFrames_1, currentFrame_1 );
 			bottomLine_1.setAttribute( "d", "M" + bottomLeftX_1 + "," + bottomLeftY_1 + " L" + topRightX_1 + "," + topRightY_1 );
-			//recursion
+			//custom
 			heightNav.style.height = `${AJS.easeOutBack( 335, 300, menuDisappearDurationInFrames_1, currentFrame_1 )}px`
+			rightHeader.style.transform = `translateX(${AJS.easeOutBack(-5, 0, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+			if (leftB !== null) {
+				leftA.style.transform = `translateX(-${AJS.easeOutBack((vw/2) - 170 - (vw < 720 ? 0 : 20) + 10, (vw/2) - 170 - (vw < 720 ? 0 : 20), menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+				leftB.innerHTML = 'Menu.'
+				leftB.style.transform = `translateX(-${AJS.easeOutBack((vw/2) - 170 - (vw < 720 ? 0 : 20) + 10, (vw/2) - 170 - (vw < 720 ? 0 : 20), menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+			} else
+				leftA.style.transform = `translateX(-${AJS.easeOutBack((vw/2) - 145 - (vw < 720 ? 0 : 20) + 10, (vw/2) - 145 - (vw < 720 ? 0 : 20), menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+			//recursion
 			arrowAppearAnimation_1();
 		});
 	} else {
@@ -114,8 +138,17 @@ function arrowDisappearAnimation_1() {
 			topRightX_1 = AJS.easeInBack( 65, 70, arrowDisappearDurationInFrames_1, currentFrame_1 );
 			topRightY_1 = AJS.easeInBack( 35, 50, arrowDisappearDurationInFrames_1, currentFrame_1 );
 			bottomLine_1.setAttribute( "d", "M" + bottomLeftX_1 + "," + bottomLeftY_1 + " L" + topRightX_1 + "," + topRightY_1 );
-			//recursion
+			//custom
 			heightNav.style.height = `${AJS.easeInBack( 300, 70, menuDisappearDurationInFrames_1, currentFrame_1 )}px`
+			rightHeader.style.transform = `translateX(${AJS.easeInBack(0,(vw/2) - 170 + 5, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+
+			if (leftB != null){
+				leftB.style.transform = `translateX(${AJS.easeInBack(-((vw/2) - 170 - (vw < 720 ? 0 : 20)), 10, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+				leftA.style.transform = `translateX(${AJS.easeInBack(-((vw/2) - 170 - (vw < 720 ? 0 : 20)), 10, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+			} else
+				leftA.style.transform = `translateX(${AJS.easeInBack(-((vw/2) - 145 - (vw < 720 ? 0 : 20)), 10, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+
+			//recursion
 			arrowDisappearAnimation_1();
 		});
 	} else {
@@ -137,8 +170,16 @@ function menuAppearAnimation_1() {
 			//bottom line
 			bottomLineY_1 = AJS.easeOutBack( 50, 63, menuDisappearDurationInFrames_1, currentFrame_1 );
 			bottomLine_1.setAttribute( "d", "M30,"+bottomLineY_1+" L70,"+bottomLineY_1 );
-			//recursion
+			//custom
+			if (leftB != null) {
+				leftB.innerHTML = leftBTxt
+				leftB.style.transform = `translateX(${AJS.easeOutBack(10, 0, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+			}
+			rightHeader.style.visibility = `hidden`
+			rightHeader.style.transform = `translateX(${AJS.easeOutBack((vw/2) - 170 + 5, (vw/2) - 170, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
+			leftA.style.transform = `translateX(${AJS.easeOutBack(10, 0, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
 			heightNav.style.height = `${AJS.easeOutBack( 55, 70, menuDisappearDurationInFrames_1, currentFrame_1 )}px`
+			//recursion
 			menuAppearAnimation_1();
 		});
 	} else {
@@ -169,10 +210,13 @@ icon_1.addEventListener( "click", ()=> {
 		state_1 = "menu";
 		menuDisappearComplete_1 = false;
 		arrowAppearComplete_1 = false;
-  }
+	}
 });
 
 function runOnScrl() {
+	vw = window.innerWidth
+	rightHeader.style.left = `${60 + (vw < 720 ? 0 : 20)}px`
+
 	if ( state_1 === "arrow" ) {
 		closeMenuAnimation_1();
 		state_1 = "menu";
