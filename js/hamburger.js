@@ -109,6 +109,7 @@ function arrowAppearAnimation_1() {
 		currentFrame_1 = 1;
 		arrowAppearComplete_1 = true;
 		openMenuAnimation_1();
+		rightHeader.style.transform = `translateX(0px)`
 	}
 }
 
@@ -186,6 +187,7 @@ function menuAppearAnimation_1() {
 		currentFrame_1 = 1;
 		menuAppearComplete_1 = true;
 		closeMenuAnimation_1();
+		rightHeader.style.transform = `translateX(0px)`
 	}
 }
 

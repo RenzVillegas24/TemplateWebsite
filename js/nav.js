@@ -10,6 +10,7 @@ function runOnScroll() {
 
 	var objh = vw <= 900 ? 70 : 100
 	var hdrTxtSz = vw <= 900 ? 20 : 30
+	var hdrTxt2Sz = vw <= 900 ? 12 : 20
 	var maxWidth = 1500
 
 	var nvImg = document.getElementById("nvImg")
@@ -44,6 +45,8 @@ function runOnScroll() {
 			right.style.visibility = vh > vw * 1.15 ? `hidden` : `visible` 
 
 		}
+
+		
 	} else {
 		rightHeader.style.marginRight = `20px`
 		rightHeader.style.visibility = `visible`
@@ -88,7 +91,7 @@ function runOnScroll() {
 			if (document.querySelector(".right") !== null)
 				document.querySelector(".right").style.transform = `translateY(${(-a*120)}%)`;
 			if (document.getElementById("leftB") !== null){
-				document.getElementById("leftB").style.fontSize = `${((sz*.3)*(1-a)+(12*a))}pt`;
+				document.getElementById("leftB").style.fontSize = `${((sz*.3)*(1-a)+(hdrTxt2Sz*a))}pt`;
 				document.getElementById("leftB").style.paddingTop = `${((20)*(1-a)+(7*a))}px`;
 	
 			}
@@ -102,7 +105,7 @@ function runOnScroll() {
 			leftA.style.fontSize = `${hdrTxtSz+ (vw >= 900)}pt`
 			leftA.classList.add('leftA2')
 
-			if (vw <= 900 && vw < maxWidth){
+			if (vw <= 900){
 				left.style.top = `35px`
 				menuBtn.style.visibility = 'visible'
 				menuBtn.style.opacity = '1'
@@ -133,11 +136,7 @@ function runOnScroll() {
 	
 		document.querySelector(".main").style.paddingTop = `${vh}px`
 
-
-		menuBtn.style.visibility = 'hidden'
-		menuBtn.style.opacity = '0'
-		menuBtn.style.transform = 'translateX(-50%)'
-		menuBtn.style.transition = '0s'
+	
 
 		if (window.scrollY <= vhMod -objh) {
 			nvImg.classList.remove('behindCllps')
@@ -154,22 +153,42 @@ function runOnScroll() {
 				document.querySelector(".right").style.transform = `translateY(${(-a*120)}%)`;
 			
 			if (document.getElementById("leftB") !== null)
-				document.getElementById("leftB").style.fontSize = `${((sz/2)*(1-a)+(20*a))}pt`;
+				document.getElementById("leftB").style.fontSize = `${((sz/2)*(1-a)+(hdrTxt2Sz*a))}pt`;
 	
-			
+		
+
+			menuBtn.style.visibility = 'hidden'
+			menuBtn.style.opacity = '0'
+			menuBtn.style.transform = 'translateX(-50%)'
+			menuBtn.style.transition = 'cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s'
 			
 		} else if ((window.scrollY > vhMod -objh )){
+
+			if (vw > 900){
+				left.style.top = `50%`
+				menuBtn.style.visibility = 'hidden'
+				menuBtn.style.opacity = '0'
+				menuBtn.style.transform = 'translateX(-50%)'
+				menuBtn.style.transition = '0s'
+			} else {
+				left.style.top = `35px`
+				menuBtn.style.visibility = 'visible'
+				menuBtn.style.opacity = '1'
+				menuBtn.style.transform = 'translateX(0)'
+				menuBtn.style.transition = 'cubic-bezier(0.68, -0.6, 0.32, 1.6) 0.5s'
+				document.getElementById("leftB").style.paddingTop = `7px`;
+			}
+
 			nvImg.classList.add('behindCllps')
 			nvImg.style.opacity = `0`
 	
 			headerCl.style.height = `${objh}px`
 			headerId.classList.add('heightNav')
-			left.style.top = `50%`
 			leftA.style.fontSize = `${hdrTxtSz+ (vw >= 900)}pt`
 			leftA.classList.add('leftA2')
 		
 			if (document.getElementById("leftB") !== null)
-				document.getElementById("leftB").style.fontSize = `20pt`;
+				document.getElementById("leftB").style.fontSize = `${hdrTxt2Sz}pt`;
 		
 		}
 	}
