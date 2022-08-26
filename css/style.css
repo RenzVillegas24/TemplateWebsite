@@ -15,7 +15,6 @@ html{
 	font-size: 15pt;
 	margin: 0 40px;
 	overflow: visible;
-	min-width: 880px;
 	min-height: calc(200% - 100px);
 }
 
@@ -42,7 +41,6 @@ article {
 
 article h1 {
 	font-family: 'Cerebri Sans Bold';
-
 	font-size: 45pt;
 }
 
@@ -92,9 +90,9 @@ aside, nav, article, figure {
   display: block;
 }
 
-@media (max-width : 560px ){
+@media (max-width : 900px ){
 	figure img {
-		width: 100%;
+		width: 75%;
 	}
 }
 
@@ -103,7 +101,22 @@ aside, nav, article, figure {
 	figure img {
 		width: 80%;
 	}
+	html{
+		font-size: 12pt;
+		margin: 0 20px;
+	}
+	article h1 {
+		font-size: 30pt;
+	}
 }
+
+
+@media (max-width : 500px ){
+	figure img {
+		width: 95%;
+	}
+}
+
 
 @media (prefers-color-scheme: dark) {
 	html{

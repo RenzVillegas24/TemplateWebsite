@@ -8,29 +8,50 @@ function runOnScroll() {
     const z = (window.scrollY) / vh;
     const a = Math.min(1,Math.max(z + (1-(vh-objh)/vh)*z,0));
 	const sz = (minvhvw/8);
-	
+
+	var nvImg = document.getElementById("nvImg")
+	var headerCl = document.querySelector(".header")
+	var headerId = document.getElementById("header")
+	var left = document.querySelector(".left")
+	var leftA = document.getElementById("leftA")
+	var leftB = document.getElementById("leftB")
+	var right = document.querySelector(".right")
+	var rightHeader = document.querySelector(".rightHeader")
+
+	var maxWidth = 1500;
+	if (vw > maxWidth){
+		rightHeader.style.marginRight = `${(vw - maxWidth) / 2 + 20}px`
+		left.style.left = `${(vw - maxWidth) / 2 + 40}px`
+	} else {
+		rightHeader.style.marginRight = `20px`
+		left.style.left = `40px`
+	}
+
 	if (window.scrollY <= vh -objh) {
-		document.getElementById("nvImg").classList.remove('behindCllps');
-		document.getElementById("nvImg").style.opacity = `${1-a}`;
-		document.getElementById("nvImg").style.filter = `blur(${10*(Math.max(a, 0.5)-0.5)*2}px)`;
-		document.querySelector(".header").style.height = `${objh-(objh*z)}%`;
-		document.getElementById("leftA").style.fontSize = `${(sz*(1-a)+(30*a))}pt`;
-		document.getElementById("leftB").style.fontSize = `${((sz/2)*(1-a)+(20*a))}pt`;
-		document.querySelector(".left").style.top = `${(85*(1-a))+((a)*50)}%`;
-		document.getElementById("header").classList.remove('heightNav');
-		document.getElementById("leftA").classList.remove('leftA2');
+		nvImg.classList.remove('behindCllps');
+		nvImg.style.opacity = `${1-a}`;
+		nvImg.style.filter = `blur(${10*(Math.max(a, 0.5)-0.5)*2}px)`;
 		
-		document.querySelector(".right").style.transform = `translateY(${(-a*120)}%)`;
+		headerCl.style.height = `${objh-(objh*z)}%`;
+		headerId.classList.remove('heightNav');
+		left.style.top = `${(85*(1-a))+((a)*50)}%`;
+		leftB.style.fontSize = `${((sz/2)*(1-a)+(20*a))}pt`;
+		leftA.style.fontSize = `${(sz*(1-a)+(30*a))}pt`;
+		leftA.classList.remove('leftA2');
+		
+		right.style.transform = `translateY(${(-a*120)}%)`;
 		
 	} else if ((window.scrollY > vh -objh )){
-		document.getElementById("nvImg").classList.add('behindCllps');
-		document.getElementById("nvImg").style.opacity = `0`;
-		document.querySelector(".header").style.height = `100px`;
-		document.getElementById("leftA").style.fontSize = `31pt`;
-		document.getElementById("leftB").style.fontSize = `20pt`;
-		document.querySelector(".left").style.top = `50%`;
-		document.getElementById("header").classList.add('heightNav');
-		document.getElementById("leftA").classList.add('leftA2');
+		nvImg.classList.add('behindCllps');
+		nvImg.style.opacity = `0`;
+
+		headerId.classList.add('heightNav');
+		headerCl.style.height = `100px`;
+		left.style.top = `50%`;
+		leftB.style.fontSize = `20pt`;
+
+		leftA.style.fontSize = `31pt`;
+		leftA.classList.add('leftA2');
 	}
 	
 	document.querySelector(".main").style.paddingTop = `${vh}px`;

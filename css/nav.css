@@ -15,7 +15,6 @@ nav {
 	height: 100%;
 	list-style: none;
 	
-	min-width: 880px;
     filter: drop-shadow(0 7px 10px rgba(0,0,0,0.6));
 	color: #ffffff;
 
@@ -63,6 +62,7 @@ nav .behindCllps{
 	background-color: rgba(0,26,69,.60);
 	z-index: 10;
 	backdrop-filter:blur(15px);
+	-webkit-backdrop-filter:blur(15px);
 }
 
 
@@ -133,30 +133,33 @@ nav ul li a {
 	z-index: 10;
 	width: 105px;
 
+	background-color: rgba(0,26,69,0);
 	cursor: pointer;
 	
 }
 
 nav ul li a:hover {
 	z-index: 10;
-	font-size: 19pt;
+	font-size: 18pt;
 	font-family: 'Cerebri Sans Heavy';
-	color: #007CFF;
+	color: #72c0ff;
     transition: 0.2s;
 	background-color: rgba(0,26,69,0.5);
 	border-radius: 10px;
+
+	scale: 1.05;
 	
 }
 nav ul li a:active {
 	z-index: 10;
-	font-size: 17pt;
+	font-size: 18pt;
 	font-family: 'Cerebri Sans Book';
 	color: #007bff70;
     transition: 0.1s;
 	background-color: rgba(0,26,69,1.00);
 	border-radius: 10px;
 
-	
+	scale: 0.9;
 }
 
 nav ul li {
@@ -167,4 +170,38 @@ nav ul li {
 	
    
 	
+}
+
+
+@media (max-width : 900px ){
+	nav ul li {
+		visibility: hidden;
+	}
+	.heightNav {
+		height: 70px;
+	}
+	nav .collapse {
+		height: 70px;
+	}
+	.left{
+		top: 0;
+		left: 0;
+		z-index: 999;
+		width: 100%;
+		height: 100%;
+		
+		display: -webkit-flex;
+		display: flex;
+	
+		-webkit-align-items: center;
+		-webkit-box-align: center;
+	
+		align-items: center;
+		justify-content: center;
+	}
+
+	#leftB {
+		padding-top: 20px;
+		padding-left: 10px;
+	}
 }
