@@ -55,13 +55,13 @@ window.fadeTransition = function(href) {
 }
 
 
+	setTimeout(function(){
+        document.getElementById('loader').innerHTML += svgLoader;
+	}, 100);
 
 onLoad(function () {
 
 	console.log('I am waiting for the page to be loaded');
-	setTimeout(function(){
-        document.getElementById('loader').innerHTML += svgLoader;
-	}, 100);
 	},
 	function () {
 		console.log('The page is loaded');

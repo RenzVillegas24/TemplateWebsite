@@ -17,6 +17,8 @@ nav {
 	
 	min-width: 880px;
     filter: drop-shadow(0 7px 10px rgba(0,0,0,0.6));
+	color: #ffffff;
+
 }
 
 nav .collapse {
@@ -73,7 +75,6 @@ nav .behindCllps{
 nav li a .sub {
 	font-family: 'Cerebri Sans Semibold';
 	font-size: 30pt;
-	color: white;
     text-decoration: none;
 	text-align: left;
 	z-index: 10;
@@ -89,7 +90,6 @@ nav p.right {
 	font-family: 'Cerebri Sans SemiBold';
 
 	font-size: 40pt;
-	color: white;
 	text-align: left;
 	z-index: 15;
 }
@@ -99,7 +99,6 @@ nav p.right {
 	font-family: 'Cerebri Sans Bold';
 
 	font-size: 30pt;
-	color: white;
     text-decoration: none;
 	text-align: left;
 	z-index: 10;
@@ -124,7 +123,6 @@ nav li.left {
 nav ul li a {
 	font-family: 'Cerebri Sans Semibold';
 	font-size: 17pt;
-	color: #ffffff;
 	margin: 5px 5px;
     transition: 0.45s;
 	display: block;

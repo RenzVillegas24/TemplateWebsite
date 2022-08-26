@@ -13,17 +13,14 @@ body {
 
 html{
 	font-family: 'Cerebri Sans Book';
-	background-color: #000C1F;
 	font-size: 15pt;
 	margin: 0 40px;
-	color: white;
 	overflow: visible;
 	min-width: 880px;
 	min-height: calc(200% - 100px);
 }
 
 #loader {
-	background-color: #000C1F;
 	position: fixed;
     top: 0;
     left: 0;
@@ -82,21 +79,19 @@ article h1 {
 	font-family: 'Cerebri Sans Bold';
 
 	font-size: 45pt;
-	color: white;
 }
 
 article article h2 {
 	font-family: 'Cerebri Sans SemiBold';
 
 	font-size: 25pt;
-	color: white;
 	
 }
 
 p.centerL {
 	font-family: 'Cerebri Sans Book';
-	font-size: 14pt;
-	color: rgba(255, 255, 255, 0.5);
+	font-size: 12pt;
+	opacity: 0.5;
 	text-align: center;
 	width:100%;
 	
@@ -109,10 +104,10 @@ figure{
 }
 
 figure figcaption{
-	margin-top: 10px;
+	margin: 16px 0 8px 0;
 	width: 100%;
-	font-size: 14pt;
-	color: rgba(255, 255, 255, 0.63);
+	font-size: 12pt;
+	opacity: 0.65;
 	text-align: center;
 }
 
@@ -125,9 +120,6 @@ figure img {
 	padding: 0;
 	display: block;
 	position: relative;
-}
-a.mail {
-	color: white;
 }
 
 header, section, footer,
@@ -145,5 +137,31 @@ aside, nav, article, figure {
 @media (max-width : 720px ){
 	figure img {
 		width: 80%;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	#loader {
+		background-color: #000C1F;
+	}
+	html{
+		background-color: #000C1F;
+		color: white;
+	}
+	a.mail {
+		color: white;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	#loader {
+		background-color: #f3f8ff;
+	}
+	html{
+		background-color: #f3f8ff;
+		color: black;
+	}
+	a.mail {
+		color: black;
 	}
 }

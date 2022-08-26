@@ -2,7 +2,6 @@
 /* CSS Document */
 
 .Lrow{
-	background-color:#1f3853;
 	height: 250px;
 	border-radius: 20px;
     filter: drop-shadow(0 7.5px 10px rgba(0,0,0,0.6));
@@ -10,7 +9,6 @@
 	margin: 20px 0;
 }
 .Lrow:hover{
-	background-color:#1e456e;
 	filter: drop-shadow(0 15px 20px rgba(0,0,0,0.6));
 	transition: 0.25s;
 
@@ -72,13 +70,13 @@
 	
 }
 .img:hover {
-	filter: drop-shadow(0 11px 15px #007CFF);
+	filter: drop-shadow(0 11px 15px rgba(0,0,0,0.6));
 	transition: 0.5s;
 	width: 95%;	
 	height: 92.5%;
 }
 .img:active {
-	filter: drop-shadow(0 3px 4px #007CFF);
+	filter: drop-shadow(0 3px 4px rgba(0,0,0,0.6));
 	transition: 0.1s;
 	width: 92%;	
 	height: 90%;
@@ -114,7 +112,6 @@
 	
 	position: absolute;
 	text-decoration: none;
-	color: white;
 	
 }
 
@@ -157,3 +154,21 @@
 
 }
 
+
+@media (prefers-color-scheme: dark) {
+	.Lrow{
+		background-color:#1f3853;
+	}
+	.Lrow:hover{
+		background-color:#1e456e;
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.Lrow{
+		background-color:#d3e0ee;
+	}
+	.Lrow:hover{
+		background-color:#bfd8f3;
+	}
+}
