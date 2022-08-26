@@ -37,38 +37,7 @@ function runOnScroll() {
  }; 
 
  
-window.fadeTransition = function(href) {
-    document.querySelector('body').style.opacity = 0
-    setTimeout(function() { 
-        window.location.href = href
-    }, 250)
-}
-
 
 window.addEventListener("scroll", runOnScroll);
 window.addEventListener('resize', runOnScroll);
-document.addEventListener("DOMContentLoaded",runOnScroll);
-
-function onLoad(loading, loaded) {
-    if(document.readyState === 'complete'){
-        return loaded();
-    }
-    loading();
-    if (window.addEventListener) {
-        window.addEventListener('load', loaded, false);
-    }
-    else if (window.attachEvent) {
-        window.attachEvent('onload', loaded);
-    }
-};
-
-var newSvg = document.getElementById('myDiv');
-onLoad(function(){
-	
-	console.log('Waiting');
- },
- function(){
-	document.querySelector('body').style.opacity = 1
- });
-
- 
+document.addEventListener("DOMContentLoaded", runOnScroll);

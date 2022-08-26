@@ -134,6 +134,8 @@ nav ul li a {
 	text-align: center;
 	z-index: 10;
 	width: 105px;
+
+	cursor: pointer;
 	
 }
 
