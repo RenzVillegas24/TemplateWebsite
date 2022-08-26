@@ -30,24 +30,24 @@ function runOnScroll() {
 	if (vw > maxWidth){
 		rightHeader.style.marginRight = `${(vw - maxWidth) / 2 + 20}px`
 		left.style.left = `${(vw - maxWidth) / 2 + 40}px`
-		if (document.querySelector(".right") !== null)
+		if (document.querySelector(".right") !== null){
 			right.style.left = `${(vw - maxWidth) / 2 + 50}px`
-		if (!document.URL.includes("index.html"))
-				document.querySelector(".right").style.visibility = `visible` 
+			right.style.visibility = `visible` 
+		}
 
 	} else if (vw <= 900 && vw < maxWidth){
 		left.style.left = `0px`
 		right.style.left = `0px`
-		if (!document.URL.includes("index.html"))
-				document.querySelector(".right").style.visibility = vh > vw * 1.15 ? `hidden` : `visible` 
+		if (document.querySelector(".right") !== null)
+				right.style.visibility = vh > vw * 1.15 ? `hidden` : `visible` 
 		
 	} else {
 		rightHeader.style.marginRight = `20px`
 		left.style.left = `40px`
-		if (document.querySelector(".right") !== null)
+		if (document.querySelector(".right") !== null){
 			right.style.left = `50px`
-		if (!document.URL.includes("index.html"))
-				document.querySelector(".right").style.visibility = `visible` 
+			right.style.visibility = `visible` 
+		}
 
 	}
 
