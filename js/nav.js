@@ -1,5 +1,7 @@
 
   
+console.log(document.URL.toString())
+
 
 function runOnScroll() {
 
@@ -15,10 +17,12 @@ function runOnScroll() {
 	var headerId = document.getElementById("header")
 	var left = document.querySelector(".left")
 	var leftA = document.getElementById("leftA")
+	var right = document.querySelector(".right")
 	var rightHeader = document.querySelector(".rightHeader")
 
-	var navCollapse = document.querySelector("nav .collapse")
-	var heightNav = document.querySelector(".heightNav")
+	var menuBtn = document.getElementById("b1")
+	//var navCollapse = document.querySelector("nav .collapse")
+	//var heightNav = document.querySelector(".heightNav")
 
 	var positionInfo = left.getBoundingClientRect();
 	var lftH = positionInfo.height;
@@ -26,15 +30,23 @@ function runOnScroll() {
 	if (vw > maxWidth){
 		rightHeader.style.marginRight = `${(vw - maxWidth) / 2 + 20}px`
 		left.style.left = `${(vw - maxWidth) / 2 + 40}px`
-	} else if (vw < 900 && vw < maxWidth){
-		left.style.left = `0px`
-		
+		right.style.left = `${(vw - maxWidth) / 2 + 50}px`
 		if (!document.URL.includes("index.html"))
-			document.querySelector(".right").style.visibility = vh > vw * 1.1 ? `hidden` : `visible` 
-	
+				document.querySelector(".right").style.visibility = `visible` 
+
+	} else if (vw <= 900 && vw < maxWidth){
+		left.style.left = `0px`
+		right.style.left = `0px`
+		if (!document.URL.includes("index.html"))
+				document.querySelector(".right").style.visibility = vh > vw * 1.15 ? `hidden` : `visible` 
+		
 	} else {
 		rightHeader.style.marginRight = `20px`
 		left.style.left = `40px`
+		right.style.left = `50px`
+		if (!document.URL.includes("index.html"))
+				document.querySelector(".right").style.visibility = `visible` 
+
 	}
 
 
@@ -49,6 +61,7 @@ function runOnScroll() {
 		sz = (vw/8)
 
 
+		menuBtn.style.visibility = 'hidden'
 		document.querySelector(".main").style.paddingTop = `${vw}px`
 
 		if (window.scrollY <= vhMod -objh) {
@@ -62,8 +75,9 @@ function runOnScroll() {
 			leftA.style.fontSize = `${(sz*0.7*(1-a)+((hdrTxtSz)*a))}pt`
 			leftA.classList.remove('leftA2')
 	
-			if (!document.URL.includes("index.html")){
+			if (document.querySelector(".right") !== null)
 				document.querySelector(".right").style.transform = `translateY(${(-a*120)}%)`;
+			if (document.getElementById("leftB") !== null){
 				document.getElementById("leftB").style.fontSize = `${((sz*.3)*(1-a)+(12*a))}pt`;
 				document.getElementById("leftB").style.paddingTop = `${((20)*(1-a)+(7*a))}px`;
 	
@@ -78,11 +92,16 @@ function runOnScroll() {
 			left.style.top = `50%`
 			leftA.style.fontSize = `${hdrTxtSz+ (vw > 900)}pt`
 			leftA.classList.add('leftA2')
+
+			if (vw <= 900 && vw < maxWidth)
+				menuBtn.style.visibility = 'visible'
+			else
+				menuBtn.style.visibility = 'hidden'
 	
-			if (!document.URL.includes("index.html"))
+			if (document.getElementById("leftB") !== null){
 				document.getElementById("leftB").style.fontSize = `12pt`;
 				document.getElementById("leftB").style.paddingTop = `7px`;
-	
+			}
 		}
 
 	} else {
@@ -108,11 +127,13 @@ function runOnScroll() {
 			leftA.style.fontSize = `${(sz*(1-a)+((hdrTxtSz)*a))}pt`
 			leftA.classList.remove('leftA2')
 	
-			if (!document.URL.includes("index.html")){
+			if (document.querySelector(".right") !== null)
 				document.querySelector(".right").style.transform = `translateY(${(-a*120)}%)`;
+			
+			if (document.getElementById("leftB") !== null)
 				document.getElementById("leftB").style.fontSize = `${((sz/2)*(1-a)+(20*a))}pt`;
 	
-			}
+			
 			
 		} else if ((window.scrollY > vhMod -objh )){
 			nvImg.classList.add('behindCllps')
@@ -123,10 +144,10 @@ function runOnScroll() {
 			left.style.top = `50%`
 			leftA.style.fontSize = `${hdrTxtSz+ (vw > 900)}pt`
 			leftA.classList.add('leftA2')
-	
-			if (!document.URL.includes("index.html"))
+		
+			if (document.getElementById("leftB") !== null)
 				document.getElementById("leftB").style.fontSize = `20pt`;
-	
+		
 		}
 	}
 
@@ -139,3 +160,7 @@ function runOnScroll() {
 window.addEventListener("scroll", runOnScroll)
 window.addEventListener('resize', runOnScroll)
 document.addEventListener("DOMContentLoaded", runOnScroll)
+
+
+
+

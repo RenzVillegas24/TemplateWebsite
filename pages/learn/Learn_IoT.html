@@ -20,10 +20,17 @@
 
 <body class="main">
 	<nav class="header" id="header">
-		<li class="left">
+    <div id="b1" class="menuBox" >
+      <svg id="i1" class="menuIC" viewBox="0 0 100 100">
+        <path id="top-line-1"     d="M30,37 L70,37 Z"></path>
+        <path id="middle-line-1" 	d="M30,50 L70,50 Z"></path>
+        <path id="bottom-line-1" 	d="M30,63 L70,63 Z"></path>
+      </svg>
+    </div>
+    <div class="left">
 			<a id="leftA" class="sub">TechSide </a>
 			<a id="leftB" class="sub">Learn.</a>
-		</li>
+	</div>
 		<ul class="rightHeader">
 			<li class="height"></a></li>
 			<li><a onclick="fadeTransition('../../index.html')">Home</a></li>
@@ -31,12 +38,12 @@
 			<li><a onclick="fadeTransition('../learn.html')">Learn</a></li>
 			<li><a onclick="fadeTransition('../about.html')">About</a></li>
 		</ul>
-		<ul style="background-image: url('../../files/IoT.jpg');" id="nvImg" class="behind"
+		<div style="background-image: url('../../files/IoT.jpg');" id="nvImg" class="behind"
 			src="https://www.verdict.co.uk/wp-content/uploads/2021/04/shutterstock_1583248045.jpg">
 			<p class="right">
 				The Internet<br>of Things
 			</p>
-		</ul>
+		</div>
 	</nav>
 	<article>
 		<h1>The Internet Of Things</h1>
@@ -193,5 +200,8 @@
 	</p>
 	<br>
 </body>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409445/animateAnything.js"></script>
+<script src="../../js/hamburger.js"></script>
+
 
 </html>

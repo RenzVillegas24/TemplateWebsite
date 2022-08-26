@@ -19,16 +19,23 @@
 
 <header>
   <nav class="header" id="header">
-    <li class="left">
+    <div id="b1" class="menuBox" >
+      <svg id="i1" class="menuIC" viewBox="0 0 100 100">
+        <path id="top-line-1"     d="M30,37 L70,37 Z"></path>
+        <path id="middle-line-1" 	d="M30,50 L70,50 Z"></path>
+        <path id="bottom-line-1" 	d="M30,63 L70,63 Z"></path>
+      </svg>
+    </div>
+    <div class="left">
       <a id="leftA">TechSide.</a>
-    </li>
+    </div>
     <ul class="rightHeader">
       <li class="height"></li>
       <li><a onclick="fadeTransition('pages/news.html')">News</a></li>
       <li><a onclick="fadeTransition('pages/learn.html')">Learn</a></li>
       <li><a onclick="fadeTransition('pages/about.html')">About</a></li>
     </ul>
-    <ul style="background-image: url('files/home.jpg');" id="nvImg" class="behind"></ul>
+    <div style="background-image: url('files/home.jpg');" id="nvImg" class="behind"></div>
   </nav>
 </header>
 
@@ -103,5 +110,8 @@
   <br>
 
 </body>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/409445/animateAnything.js"></script>
+<script src="js/hamburger.js"></script>
+
 
 </html>
