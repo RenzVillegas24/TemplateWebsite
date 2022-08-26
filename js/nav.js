@@ -37,10 +37,10 @@ function runOnScroll() {
 
 	} else if (vw <= 900 && vw < maxWidth){
 		left.style.left = `0px`
-		right.style.left = `0px`
-		if (document.querySelector(".right") !== null)
-				right.style.visibility = vh > vw * 1.15 ? `hidden` : `visible` 
-		
+		if (document.querySelector(".right") !== null){
+			right.style.left = `0px`
+			right.style.visibility = vh > vw * 1.15 ? `hidden` : `visible` 
+		}
 	} else {
 		rightHeader.style.marginRight = `20px`
 		left.style.left = `40px`
