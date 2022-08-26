@@ -47,30 +47,27 @@ var svgLoader = `
 </div>
 `;
   
+
 window.fadeTransition = function(href) {
-    document.getElementById('loader').style.opacity = 1;
-    document.getElementById('loader').style.visibility = 'visible';
+    document.querySelector('body').style.opacity = 0
     setTimeout(function() { 
         window.location.href = href
-    }, 100)
+    }, 150)
 }
 
 
-	setTimeout(function(){
-        document.getElementById('loader').innerHTML += svgLoader;
-	}, 100);
-
 onLoad(function () {
-
-	console.log('I am waiting for the page to be loaded');
+        setTimeout(function(){
+            document.getElementById('loader').innerHTML += svgLoader;
+        }, 100);
+        console.log('I am waiting for the page to be loaded');
 	},
 	function () {
-		console.log('The page is loaded');
-        document.querySelector('body').style.opacity = 1;
 		setTimeout(function(){
 			document.getElementById('loader').style.opacity = 0;
 			document.getElementById('loader').style.visibility = 'hidden';
-            document.getElementById('loader').innerHTML = "";
-    },500);
+                document.getElementById('loader').innerHTML = "";
+        },500);
+		console.log('The page is loaded');
 	});
 
