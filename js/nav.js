@@ -30,7 +30,8 @@ function runOnScroll() {
 	if (vw > maxWidth){
 		rightHeader.style.marginRight = `${(vw - maxWidth) / 2 + 20}px`
 		left.style.left = `${(vw - maxWidth) / 2 + 40}px`
-		right.style.left = `${(vw - maxWidth) / 2 + 50}px`
+		if (document.querySelector(".right") !== null)
+			right.style.left = `${(vw - maxWidth) / 2 + 50}px`
 		if (!document.URL.includes("index.html"))
 				document.querySelector(".right").style.visibility = `visible` 
 
@@ -43,7 +44,8 @@ function runOnScroll() {
 	} else {
 		rightHeader.style.marginRight = `20px`
 		left.style.left = `40px`
-		right.style.left = `50px`
+		if (document.querySelector(".right") !== null)
+			right.style.left = `50px`
 		if (!document.URL.includes("index.html"))
 				document.querySelector(".right").style.visibility = `visible` 
 
