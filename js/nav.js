@@ -1,207 +1,256 @@
 
-  
 console.log(document.URL.toString())
 
 
+
+var vh,
+	vw,
+	hdrVH,
+	hdrTxtSz,
+	hdrTxt2Sz,
+	maxWidth,
+	leftBTxt = ``,
+	leftW
+
+var hdrCurVH,
+	hdrImgOpa,
+	hdrImgBlr,
+	hdrImgScl,
+	hdrTxtTtlTop,
+	hdrTxtTtlTopSTR,
+	hdrTxtTtlFntSz,
+	hdrTxt2TtlFntSz,
+	ratio
+
 function runOnScroll() {
+	var lftH,
+		z,
+		fntSZ,
+		currVH,
+		itmsMarginR,
+		itmsMarginR2,
+		itmsMarginL
 
-	const vh = window.innerHeight
-	const vw = window.innerWidth
 
-	var objh = vw <= 900 ? 70 : 100
-	var hdrTxtSz = vw <= 900 ? 20 : 30
-	var hdrTxt2Sz = vw <= 900 ? 12 : 20
-	var maxWidth = 1500
+	vh = window.innerHeight
+	vw = window.innerWidth
 
-	var nvImg = document.getElementById("nvImg")
-	var headerCl = document.querySelector(".header")
-	var headerId = document.getElementById("header")
-	var left = document.querySelector(".left")
-	var leftA = document.getElementById("leftA")
-	var right = document.querySelector(".right")
-	var rightHeader = document.querySelector(".rightHeader")
+	hdrVH = vw <= 900 ? 70 : 100
+	hdrTxtSz = vw <= 900 ? 20 : 30
+	hdrTxt2Sz = vw <= 900 ? 12 : 20
+	hdrTxt2TtlFntSz = hdrTxt2Sz
+	maxWidth = 1500
 
-	var menuBtn = document.getElementById("b1")
-	//var navCollapse = document.querySelector("nav .collapse")
-	//var heightNav = document.querySelector(".heightNav")
+	lftH = left.style.height
+	currVH = vh > vw ? vw : vh
+	z = (window.scrollY) / currVH
+	ratio = Math.min(1, Math.max(z + (1 - (currVH - hdrVH) / currVH) * z, 0))
 
-	var positionInfo = left.getBoundingClientRect();
-	var lftH = positionInfo.height;
+
+	itmsMarginL = 0
+	//itmsMarginL = (vw - left.getBoundingClientRect().width) / 2
+
+
 	
-	if (vw > maxWidth){
-		rightHeader.style.marginRight = `${(vw - maxWidth) / 2 + 20}px`
-		left.style.left = `${(vw - maxWidth) / 2 + 40}px`
-		rightHeader.style.visibility = `visible`
-		if (document.querySelector(".right") !== null){
-			right.style.left = `${(vw - maxWidth) / 2 + 50}px`
-			right.style.visibility = `visible` 
+	if (vw <= 900) {
+
+		if (right !== null){
+			right.style.visibility = vh > vw * 1.15 ? `hidden` : `visible`
 		}
 
-	} else if (vw <= 900 && vw < maxWidth){
-		left.style.left = `0px`
-		rightHeader.style.visibility = `hidden`
-		if (document.querySelector(".right") !== null){
-			right.style.left = `0px`
-			right.style.visibility = vh > vw * 1.15 ? `hidden` : `visible` 
-
-		}
 
 		
+
+
+		itmsMarginR2 = 0
+
 	} else {
-		rightHeader.style.marginRight = `20px`
-		rightHeader.style.visibility = `visible`
-		left.style.left = `40px`
-		if (document.querySelector(".right") !== null){
-			right.style.left = `50px`
-			right.style.visibility = `visible` 
+		if (vw > maxWidth) {	
+			itmsMarginR = (vw - maxWidth) / 2 + 20
+			itmsMarginR2 = (vw - maxWidth) / 2 + 50
+			itmsMarginL = (vw - maxWidth) / 2 + 50
+		} else {
+			itmsMarginR = 20
+			itmsMarginR2 = 50
+			itmsMarginL = 50
 		}
+
+
+		if (right !== null){
+			right.style.visibility = `visible`
+		}
+		
 
 	}
 
 
-	var lftH, minvhvw, z, a, sz, vhMod, vhSz
+
+	if (window.scrollY <= currVH - hdrVH) {
+		hdrCurVH = Math.round(currVH - (currVH * z))
+		hdrImgOpa = 1 - ratio
+		hdrImgBlr = Math.round((10 * (Math.max(ratio, 0.5) - 0.5) * 2)*10)/10 
+		hdrImgScl = AJS.easeInCubic(1,1.5 , 75, (Math.max(ratio, 0.25)-0.25)*100)
+		
+		nvImg.classList.remove('behindCllps')
+		headerId.classList.remove('heightNav')
+		leftA.classList.remove('leftA2')
+
+
+		
+		if (vw <= 900) {
+			rightHeader.style.visibility = `hidden`
+			rightHeader.style.opacity = `0`
+		} else {
+			rightHeader.style.visibility = `visible`
+			rightHeader.style.opacity = `1`
+		}
+
+
+		
+		menuBtn.style.visibility = 'hidden'
+		menuBtn.style.opacity = '0'
+		menuBtn.style.transform = 'translateX(-50%)'
+		menuBtn.style.transition = 'cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s'
+
+		
+		hdrTxtTtlTopSTR = `${AJS.easeInOutQuad(85, 50, 100, ratio*100)}%`
+
+		if (leftB !== null) 
+			leftB.style.paddingTop = `${((20) * (1 - ratio) + (7 * ratio))}px`;
+		
+
+	} else if ((window.scrollY > currVH - hdrVH)) {
+		hdrCurVH = hdrVH
+		hdrImgOpa = 0
+		hdrImgScl = 1
+		hdrTxtTtlFntSz = hdrTxtSz 
+
+		nvImg.classList.add('behindCllps')
+		headerId.classList.add('heightNav')
+		leftA.classList.add('leftA2')
+
+		rightHeader.style.visibility = `visible`
+		rightHeader.style.opacity = `1`
+
+
+
 	
-	if (vh > vw){
-		vhSz = (vw / vh) * 100
-		vhMod = vw
-		lftH = left.style.height
-		z = (window.scrollY) / vw
-		a = Math.min(1,Math.max(z + (1-(vw-objh)/vw)*z,0))
-		sz = (vw/8)
-
-		document.querySelector(".main").style.paddingTop = `${vw}px`
-
-		if (window.scrollY <= vhMod -objh) {
-			nvImg.classList.remove('behindCllps')
-			nvImg.style.opacity = `${1-a}`
-			nvImg.style.filter = `blur(${10*(Math.max(a, 0.5)-0.5)*2}px)`
-			
-			headerCl.style.height = `${vhSz-(vhSz*z)}%`
-			headerId.classList.remove('heightNav')
-			left.style.top = `${(85*(1-a))+((a)*50)}%`
-			leftA.style.fontSize = `${(sz*0.7*(1-a)+((hdrTxtSz)*a))}pt`
-			leftA.classList.remove('leftA2')
-	
-
+		if (vw <= 900) {
+			hdrTxtTtlTopSTR = `35px`
+			menuBtn.style.visibility = 'visible'
+			menuBtn.style.opacity = '1'
+			menuBtn.style.transform = 'translateX(0)'
+			menuBtn.style.transition = 'cubic-bezier(0.68, -0.6, 0.32, 1.6) 0.5s'
+		} else {
+			hdrTxtTtlTopSTR = `50%`
 			menuBtn.style.visibility = 'hidden'
 			menuBtn.style.opacity = '0'
 			menuBtn.style.transform = 'translateX(-50%)'
-			menuBtn.style.transition = 'cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s'
-
-			if (document.querySelector(".right") !== null)
-				document.querySelector(".right").style.transform = `translateY(${(-a*120)}%)`;
-			if (document.getElementById("leftB") !== null){
-				document.getElementById("leftB").style.fontSize = `${((sz*.3)*(1-a)+(hdrTxt2Sz*a))}pt`;
-				document.getElementById("leftB").style.paddingTop = `${((20)*(1-a)+(7*a))}px`;
-	
-			}
-			
-		} else if ((window.scrollY > vhMod -objh )){
-			nvImg.classList.add('behindCllps')
-			nvImg.style.opacity = `0`
-	
-			headerCl.style.height = `${objh}px`
-			headerId.classList.add('heightNav')
-			leftA.style.fontSize = `${hdrTxtSz+ (vw >= 900)}pt`
-			leftA.classList.add('leftA2')
-
-			if (vw <= 900){
-				left.style.top = `35px`
-				menuBtn.style.visibility = 'visible'
-				menuBtn.style.opacity = '1'
-				menuBtn.style.transform = 'translateX(0)'
-				menuBtn.style.transition = 'cubic-bezier(0.68, -0.6, 0.32, 1.6) 0.5s'
-			}else{
-				left.style.top = `50%`
-				menuBtn.style.visibility = 'hidden'
-				menuBtn.style.opacity = '0'
-				menuBtn.style.transform = 'translateX(-50%)'
-				menuBtn.style.transition = '0s'
-			}
-
-			if (document.getElementById("leftB") !== null){
-				document.getElementById("leftB").style.fontSize = `12pt`;
-				document.getElementById("leftB").style.paddingTop = `7px`;
-			}
+			menuBtn.style.transition = '0s'
 		}
 
-	} else {
-		vhSz = 100
-		vhMod = vh
-		lftH = left.style.height
-		minvhvw = Math.min(vh, vw*.8)
-		z = (window.scrollY) / vh
-		a = Math.min(1,Math.max(z + (1-(vh-objh)/vh)*z,0))
-		sz = (minvhvw/8)
-	
-		document.querySelector(".main").style.paddingTop = `${vh}px`
+		if (leftB !== null) 
+			leftB.style.paddingTop = `7px`;
 
-	
 
-		if (window.scrollY <= vhMod -objh) {
-			nvImg.classList.remove('behindCllps')
-			nvImg.style.opacity = `${1-a}`
-			nvImg.style.filter = `blur(${10*(Math.max(a, 0.5)-0.5)*2}px)`
-			
-			headerCl.style.height = `${vhSz-(vhSz*z)}%`
-			headerId.classList.remove('heightNav')
-			left.style.top = `${(85*(1-a))+((a)*50)}%`
-			leftA.style.fontSize = `${(sz*(1-a)+((hdrTxtSz)*a))}pt`
-			leftA.classList.remove('leftA2')
-	
-			if (document.querySelector(".right") !== null)
-				document.querySelector(".right").style.transform = `translateY(${(-a*120)}%)`;
-			
-			if (document.getElementById("leftB") !== null)
-				document.getElementById("leftB").style.fontSize = `${((sz/2)*(1-a)+(hdrTxt2Sz*a))}pt`;
-	
-		
-
-			menuBtn.style.visibility = 'hidden'
-			menuBtn.style.opacity = '0'
-			menuBtn.style.transform = 'translateX(-50%)'
-			menuBtn.style.transition = 'cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s'
-			
-		} else if ((window.scrollY > vhMod -objh )){
-
-			if (vw > 900){
-				left.style.top = `50%`
-				menuBtn.style.visibility = 'hidden'
-				menuBtn.style.opacity = '0'
-				menuBtn.style.transform = 'translateX(-50%)'
-				menuBtn.style.transition = '0s'
-			} else {
-				left.style.top = `35px`
-				menuBtn.style.visibility = 'visible'
-				menuBtn.style.opacity = '1'
-				menuBtn.style.transform = 'translateX(0)'
-				menuBtn.style.transition = 'cubic-bezier(0.68, -0.6, 0.32, 1.6) 0.5s'
-				document.getElementById("leftB").style.paddingTop = `7px`;
-			}
-
-			nvImg.classList.add('behindCllps')
-			nvImg.style.opacity = `0`
-	
-			headerCl.style.height = `${objh}px`
-			headerId.classList.add('heightNav')
-			leftA.style.fontSize = `${hdrTxtSz+ (vw >= 900)}pt`
-			leftA.classList.add('leftA2')
-		
-			if (document.getElementById("leftB") !== null)
-				document.getElementById("leftB").style.fontSize = `${hdrTxt2Sz}pt`;
-		
-		}
 	}
 
 
-	
-} 
 
- 
+	if (vh > vw) {
+		fntSZ = (vw / 8)
 
-window.addEventListener("scroll", runOnScroll)
-window.addEventListener('resize', runOnScroll)
-document.addEventListener("DOMContentLoaded", runOnScroll)
+		if (window.scrollY <= currVH - hdrVH) {
+			//hdrTxtTtlFntSz = (fntSZ * 0.7 * (1 - ratio) + ((hdrTxtSz) * ratio))
+			//hdrTxt2TtlFntSz = ((fntSZ * .3) * (1 - ratio) + (hdrTxt2Sz * ratio));
+			//hdrTxtTtlTopSTR = `${(85 * (1 - ratio)) + ((ratio) * 50)}%`
+
+			
+			hdrTxtTtlFntSz = AJS.easeInOutQuad(fntSZ*0.7, hdrTxtSz, 100, ratio*100)
+			hdrTxt2TtlFntSz = AJS.easeInOutQuad(fntSZ*0.3, hdrTxt2Sz, 100, ratio*100)
+
+
+		} 
+
+	} else {
+		fntSZ = (Math.min(vh, vw * 0.8) / 8)
+		//hdrTxtTtlTopSTR = `${(85 * (1 - ratio)) + ((ratio) * 50)}%`
+		if (window.scrollY <= currVH - hdrVH) {
+			//hdrTxtTtlFntSz = (fntSZ * (1 - ratio) + ((hdrTxtSz) * ratio))
+			//hdrTxt2TtlFntSz = ((fntSZ / 2) * (1 - ratio) + (hdrTxt2Sz * ratio));
+
+			hdrTxtTtlFntSz = AJS.easeInOutQuad(fntSZ, hdrTxtSz, 100, ratio*100)
+			hdrTxt2TtlFntSz = AJS.easeInOutQuad(fntSZ/2, hdrTxt2Sz, 100, ratio*100)
+
+
+		} 
+	}
+
+
+	left.style.left = `${itmsMarginL}px`
+	if (right !== null){
+		right.style.left = `${itmsMarginR2}px`
+		right.style.transform = `translateY(${ratio * currVH / 5}px)`;
+		right.style.opacity = `${Math.max(1-ratio*3, 0)}`;
+	}
+
+	rightHeader.style.marginRight = `${itmsMarginR}px`
+
+	main.style.paddingTop = `${currVH}px`
+	document.querySelector("html").style.minHeight = `${vh*2 + (currVH - vh) - hdrVH + 1}px`
+
+	headerCl.style.height = `${hdrCurVH}px`
+
+	nvImg.style.transform = `translateY(${-window.scrollY/2}px)`
+	nvImg.style.height = `${currVH}px`
+	nvImg.style.opacity = `${hdrImgOpa}`
+	nvImg.style.filter = `blur(${hdrImgBlr}px)`
+	nvImg.style.scale = `${hdrImgScl}`
+
+	left.style.top = hdrTxtTtlTopSTR
+	leftA.style.fontSize = `${hdrTxtTtlFntSz}pt`
+	if (leftB !== null)
+		leftB.style.fontSize = `${hdrTxt2TtlFntSz}pt`;
+
+}
+
+
+var main,
+	nvImg,
+	headerCl,
+	headerId,
+	left,
+	leftA,
+	leftB,
+	right,
+	rightHeader,
+	menuBtn,
+	heightNav
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+	main = document.querySelector(".main")
+	nvImg = document.getElementById("nvImg")
+	headerCl = document.querySelector(".header")
+	headerId = document.getElementById("header")
+	left = document.querySelector(".left")
+	leftA = document.getElementById("leftA")
+	leftB = document.getElementById("leftB")
+	right = document.querySelector(".right")
+	rightHeader = document.querySelector(".rightHeader")
+	heightNav = document.getElementById("header")
+
+	menuBtn = document.getElementById("b1")
+
+
+	if (leftB != null)
+		leftBTxt = leftB.innerHTML
+
+	runOnScroll()
+	window.addEventListener('resize', runOnScroll)
+	window.addEventListener("scroll", runOnScroll)
+})
 
 
 

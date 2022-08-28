@@ -34,12 +34,14 @@ nav .behind{
     z-index: -10;
     top:0;
 	left:0;
+	right:0;
+	bottom:0;
 	margin:0;
     background-position: center;
-    background-repeat: no-repeat;
-	overflow: hidden;
-	transform: scale(1.02) translate3d(0,0,0);
+    background-repeat:space;
+	transform: scale(1.001) translate3d(0,0,0);
 	position:absolute;
+	overflow: hidden;
 }
 
 nav .rightHeader {
@@ -62,6 +64,7 @@ nav .behindCllps{
 	z-index: 10;
 	backdrop-filter:blur(15px);
 	-webkit-backdrop-filter:blur(15px);
+	scale: 1.001;
 }
 
 
@@ -199,7 +202,7 @@ nav .menuIC {
 	opacity: .95; 
 }
 
-@media (max-width : 900px ){
+@media (max-width : 900px){
 	nav .menuBox {
 		margin: 10px 0 0 35px;
 	}
@@ -229,7 +232,7 @@ nav .menuIC {
 	}
 	nav ul li a:active {
 		scale: 1;
-		font-size: 12`pt;
+		font-size: 12pt;
 	}
 	nav ul li{
 		display: block;
@@ -252,7 +255,6 @@ nav .menuIC {
 		display: -webkit-flex;
 		display: flex;
 
-		transform: translateY(0);
 	
 		-webkit-align-items: center;
 		-webkit-box-align: center;

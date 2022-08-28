@@ -3,16 +3,9 @@
 /////////////////////////////////////////////////////
 /////////////////////  ICON 1  //////////////////////
 /////////////////////////////////////////////////////
-var heightNav = document.getElementById("header")
-var left = document.querySelector(".left")
-var rightHeader = document.querySelector(".rightHeader")
-var leftA = document.getElementById("leftA")
-var leftB = document.getElementById("leftB")
-if (leftB != null)
-	var leftBTxt = leftB.innerHTML
-var h0tmMain = document.querySelector("html")
-var vw = window.innerWidth
+var bodMain = document.querySelector(".main")
 
+var padTop = (vh > vw) ? `${vw}px` : `${vh}px`
 
 ///Initiation Variables
 var icon_1 = document.getElementById("b1");
@@ -56,8 +49,7 @@ function menuDisappearAnimation_1() {
 			bottomLineY_1 = AJS.easeInBack( 63, 50, menuDisappearDurationInFrames_1, currentFrame_1 );
 			bottomLine_1.setAttribute( "d", "M30,"+bottomLineY_1+" L70,"+bottomLineY_1 );
 			//custom
-			heightNav.style.height = `${AJS.easeInBack(70, 315, menuDisappearDurationInFrames_1, currentFrame_1 )}px`
-			rightHeader.style.visibility = `visible`
+			heightNav.style.height = `${AJS.easeInQuint(hdrCurVH, 315, menuDisappearDurationInFrames_1, currentFrame_1 )}px`
 			rightHeader.style.transform = `translateX(${AJS.easeInBack((vw/2) - 170, -5, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
 
 			if (leftB !== null){
@@ -140,7 +132,7 @@ function arrowDisappearAnimation_1() {
 			topRightY_1 = AJS.easeInBack( 35, 50, arrowDisappearDurationInFrames_1, currentFrame_1 );
 			bottomLine_1.setAttribute( "d", "M" + bottomLeftX_1 + "," + bottomLeftY_1 + " L" + topRightX_1 + "," + topRightY_1 );
 			//custom
-			heightNav.style.height = `${AJS.easeInBack( 300, 70, menuDisappearDurationInFrames_1, currentFrame_1 )}px`
+			heightNav.style.height = `${AJS.easeInBack( 300, hdrCurVH - 15, menuDisappearDurationInFrames_1, currentFrame_1 )}px`
 			rightHeader.style.transform = `translateX(${AJS.easeInBack(0,(vw/2) - 170 + 5, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
 
 			if (leftB != null){
@@ -176,10 +168,9 @@ function menuAppearAnimation_1() {
 				leftB.innerHTML = leftBTxt
 				leftB.style.transform = `translateX(${AJS.easeOutBack(10, 0, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
 			}
-			rightHeader.style.visibility = `hidden`
 			rightHeader.style.transform = `translateX(${AJS.easeOutBack((vw/2) - 170 + 5, (vw/2) - 170, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
 			leftA.style.transform = `translateX(${AJS.easeOutBack(10, 0, menuDisappearDurationInFrames_1, currentFrame_1 )}px)`
-			heightNav.style.height = `${AJS.easeOutBack( 55, 70, menuDisappearDurationInFrames_1, currentFrame_1 )}px`
+			heightNav.style.height = `${AJS.easeOutBack( hdrCurVH - 15, hdrCurVH, menuDisappearDurationInFrames_1, currentFrame_1 )}px`
 			//recursion
 			menuAppearAnimation_1();
 		});
@@ -200,36 +191,54 @@ function closeMenuAnimation_1() {
 	}
 }
 
+var wait = false
+
 ///Events
 icon_1.addEventListener( "click", ()=> { 
-	if ( state_1 === "menu" ) {
-		openMenuAnimation_1();
-		state_1 = "arrow";
-		arrowDisappearComplete_1 = false;
-		menuAppearComplete_1 = false;
-	} else if ( state_1 === "arrow" ) {
-		closeMenuAnimation_1();
-		state_1 = "menu";
-		menuDisappearComplete_1 = false;
-		arrowAppearComplete_1 = false;
+	if (!wait)
+	{
+		if ( state_1 === "menu" ) {
+			openMenuAnimation_1();
+			state_1 = "arrow";
+			arrowDisappearComplete_1 = false;
+			menuAppearComplete_1 = false;
+		} else if ( state_1 === "arrow" ) {
+			closeMenuAnimation_1();
+			state_1 = "menu";
+			menuDisappearComplete_1 = false;
+			arrowAppearComplete_1 = false;
+		}
+		wait = true
+		setTimeout(function(){ wait = false }, 500)
+		
+		console.log(leftA.offsetWidth + (leftB === null ? 0 : leftB.offsetWidth))
 	}
 });
 
+
 function runOnScrl() {
 	vw = window.innerWidth
-	rightHeader.style.left = `${60 + (vw < 720 ? 0 : 20)}px`
+	vh = window.innerHeight
+	padTop = (vh > vw) ? `${vw}px` : `${vh}px`
 
-	if ( state_1 === "arrow" ) {
-		closeMenuAnimation_1();
-		state_1 = "menu";
-		menuDisappearComplete_1 = false;
-		arrowAppearComplete_1 = false;
+	rightHeader.style.left = `${60 + (vw < 720 ? 0 : 20)}px`
+	if (!wait)
+	{
+		if ( state_1 === "arrow" ) {
+			closeMenuAnimation_1();
+			state_1 = "menu";
+			menuDisappearComplete_1 = false;
+			arrowAppearComplete_1 = false;
+		}
+		wait = true
+		setTimeout(function(){ wait = false }, 500)
 	}
 
 }
 
-
-window.addEventListener("scroll", runOnScrl)
-window.addEventListener('resize', runOnScrl)
+document.addEventListener("DOMContentLoaded", function () {
+	window.addEventListener("scroll", runOnScrl)
+	window.addEventListener('resize', runOnScrl)
+})
 
 
