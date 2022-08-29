@@ -1,5 +1,4 @@
 
-console.log(document.URL.toString())
 
 
 
@@ -213,45 +212,6 @@ function runOnScroll() {
 		leftB.style.fontSize = `${hdrTxt2TtlFntSz}pt`;
 
 }
-
-
-var main,
-	nvImg,
-	headerCl,
-	headerId,
-	left,
-	leftA,
-	leftB,
-	right,
-	rightHeader,
-	menuBtn,
-	heightNav
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-	main = document.querySelector(".main")
-	nvImg = document.getElementById("nvImg")
-	headerCl = document.querySelector(".header")
-	headerId = document.getElementById("header")
-	left = document.querySelector(".left")
-	leftA = document.getElementById("leftA")
-	leftB = document.getElementById("leftB")
-	right = document.querySelector(".right")
-	rightHeader = document.querySelector(".rightHeader")
-	heightNav = document.getElementById("header")
-
-	menuBtn = document.getElementById("b1")
-
-
-	if (leftB != null)
-		leftBTxt = leftB.innerHTML
-
-	runOnScroll()
-	window.addEventListener('resize', runOnScroll)
-	window.addEventListener("scroll", runOnScroll)
-})
-
 
 
 

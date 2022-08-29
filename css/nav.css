@@ -18,6 +18,8 @@ nav {
     filter: drop-shadow(0 7px 10px rgba(0,0,0,0.6));
 	color: #ffffff;
 
+	min-width: 320px;
+
 }
 
 nav .collapse {

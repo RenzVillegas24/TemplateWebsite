@@ -215,13 +215,9 @@ icon_1.addEventListener( "click", ()=> {
 	}
 });
 
-
 function runOnScrl() {
-	vw = window.innerWidth
-	vh = window.innerHeight
 	padTop = (vh > vw) ? `${vw}px` : `${vh}px`
-
-	rightHeader.style.left = `${60 + (vw < 720 ? 0 : 20)}px`
+	rightHeader.style.left = `${ (isMobile ? 10 : 0) +  60 + (vw < 720 ? 0 : 20)}px`
 	if (!wait)
 	{
 		if ( state_1 === "arrow" ) {
