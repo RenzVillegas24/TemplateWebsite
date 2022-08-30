@@ -230,6 +230,8 @@ function runOnScrl() {
 		setTimeout(function(){ wait = false }, 500)
 	}
 
+	
+
 }
 
 document.addEventListener("DOMContentLoaded", function () {

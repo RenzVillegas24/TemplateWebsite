@@ -1,4 +1,6 @@
 @charset "utf-8";
+
+
 /* CSS Document */
 body .main{
 	font-family: 'Cerebri Sans Book';	
@@ -8,21 +10,18 @@ body .main{
 
 body {
 	transition: opacity 0.25s;
+	width: 100%;
 }
 
 html{
 	font-family: 'Cerebri Sans Book';
 	font-size: 15pt;
 	margin: 0 40px;
-	overflow: visible;
-
+    overflow-y: overflow;
 	min-width: 320px;
 }
 
 
-figure img {
-	width: 50%;
-}
 
 aside {
 	float: right;
@@ -76,6 +75,9 @@ figure figcaption{
 }
 
 figure img {
+    animation-name: closeImg;
+    animation-duration: 1.25s;
+
 	border-radius: 20px;
 	width: 65%;
 	left: 50%;
@@ -85,6 +87,57 @@ figure img {
 	display: block;
 	position: relative;
 }
+/* 
+.imgToggle {
+    animation-name: openImg;
+    animation-duration: 1.25s;
+
+	width: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	margin: 0;
+	padding: 0;
+	display: block;
+	position: relative;
+}
+
+
+
+@keyframes openImg {
+	0% {
+		width: 65%;
+	}
+	10% {
+		width: 62.5%;
+	}
+	30% {
+		width: 102%;
+	}
+	60% {
+		width: 99%;
+	}
+	100% {
+		width: 100%;
+	}
+}
+
+@keyframes closeImg {
+	0% {
+		width: 100%;
+	}
+	10% {
+		width: 105%;
+	}
+	30% {
+		width: 62.5%;
+	}
+	60% {
+		width: 66%;
+	}
+	100% {
+		width: 65%;
+	}
+} */
 
 header, section, footer,
 aside, nav, article, figure {

@@ -196,7 +196,7 @@ function runOnScroll() {
 	rightHeader.style.marginRight = `${itmsMarginR}px`
 
 	main.style.paddingTop = `${currVH}px`
-	document.querySelector("html").style.minHeight = `${vh*2 + (currVH - vh) - hdrVH + 1}px`
+	master.style.minHeight = `${vh*2 + (currVH - vh) - hdrVH + 1}px`
 
 	headerCl.style.height = `${hdrCurVH}px`
 
