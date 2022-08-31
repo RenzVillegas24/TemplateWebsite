@@ -18,6 +18,7 @@ html{
 	font-size: 15pt;
 	margin: 0 40px;
     overflow-y: overflow;
+	scroll-behavior: smooth;
 	min-width: 320px;
 }
 

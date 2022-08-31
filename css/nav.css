@@ -13,8 +13,12 @@ nav {
 	height: 100%;
 	list-style: none;
 	filter: drop-shadow(0 7px 10px rgba(0,0,0,0.6));
+	backdrop-filter:opacity(0.99);
+	-webkit-backdrop-filter:opacity(0.99);
+
 	color: #ffffff;
 	min-width: 320px;
+	
 }
 
 nav .collapse {
